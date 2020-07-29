@@ -1,5 +1,6 @@
 # API
-api-read-cache has a REST-list API with routes registered and documented in [ApiReadCacheResource]() and [ViewResource]().
+api-read-cache has a REST-list API with routes registered and documented in [ApiReadCacheResource](https://github.com/lavanyachennupati/hack-project/blob/master/src/main/java/org/netflix/apiservice/resources/ApiReadCacheResource.java#L40)
+and [ViewResource](https://github.com/lavanyachennupati/hack-project/blob/master/src/main/java/org/netflix/apiservice/resources/ViewResource.java#L39).
 
 # Usage
 
@@ -17,7 +18,7 @@ that will run the `api-read-cache` service when `github_api_token` is replaced w
 `docker run  -e GITHUB_API_TOKEN=<github_api_token> -e SERVER_PORT=8080 -p 8080:8080  lchennupa/hack-projects:netflix-repos`
 
 The 4 endpoints that are to be cached are periodically polled every 60s and cached.
-The cache sizes, expiration, frequency of polling are all configurable in [api-read-cache.conf]()
+The cache sizes, expiration, frequency of polling are all configurable in [api-read-cache.conf](https://github.com/lavanyachennupati/hack-project/blob/master/src/main/resources/api-read-cache.conf)
 
 ### Testing
 Ran the given [api-test-suit](https://drive.google.com/file/d/1HPKYCMZ_fk2sYrWasOyDyoRl5LqH_gIE/view) that's provided.
