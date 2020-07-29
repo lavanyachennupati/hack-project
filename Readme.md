@@ -5,19 +5,36 @@ and [ViewResource](https://github.com/lavanyachennupati/hack-project/blob/master
 # Usage
 
 ### Build, Verify and Package
- `mvn clean package`
+ ```
+mvn clean package
+ ```
  
 ### Build Docker image
-`docker build -t <image-name> .`
+```
+docker build -t <image-name> .
+```
 
 ### Run Docker image with environment variables
-` docker run  -e GITHUB_API_TOKEN=<git_hib_token> -e SERVER_PORT=<port> -p <port>:<port> <image-name>`
+```
+ docker run  -e GITHUB_API_TOKEN=<git_hib_token> -e SERVER_PORT=<port> -p <port>:<port> <image-name>
+```
 
  I built a  docker image `lchennupa/hack-projects:netflix-repos` and pushed it to the public registry
-that will run the `api-read-cache` service when `github_api_token` is replaced with a valid GITHUB_API_TOKEN 
-`docker run  -e GITHUB_API_TOKEN=<github_api_token> -e SERVER_PORT=8080 -p 8080:8080  lchennupa/hack-projects:netflix-repos`
+that will run the `api-read-cache` service when `github_api_token` is replaced with a valid `GITHUB_API_TOKEN` 
 
-The 4 endpoints that are to be cached are periodically polled every 60s and cached.
+```
+docker run  -e GITHUB_API_TOKEN=<github_api_token> -e SERVER_PORT=8080 -p 8080:8080  lchennupa/hack-projects:netflix-repos
+```
+
+
+The following 4 endpoints that are to be cached are periodically polled every 60s and cached.
+```
+    "/",
+    "/orgs/Netflix",
+    "/orgs/Netflix/members",
+    "/orgs/Netflix/repos"
+
+```
 The cache sizes, expiration, frequency of polling are all configurable in [api-read-cache.conf](https://github.com/lavanyachennupati/hack-project/blob/master/src/main/resources/api-read-cache.conf)
 
 ### Testing
