@@ -16,11 +16,11 @@ docker build -t <image-name> .
 
 ### Run Docker image with environment variables
 ```
- docker run  -e GITHUB_API_TOKEN=<git_hib_token> -e SERVER_PORT=<port> -p <port>:<port> <image-name>
+ docker run  -e GITHUB_API_TOKEN=<github_api_token> -e SERVER_PORT=<port> -p <port>:<port> <image-name>
 ```
 
  I built a  docker image `lchennupa/hack-projects:netflix-repos` and pushed it to the public registry
-that will run the `api-read-cache` service when `github_api_token` is replaced with a valid `GITHUB_API_TOKEN` 
+that will run the `api-read-cache` service when `GITHUB_API_TOKEN` environment variable is set to  a valid `github_api_token` 
 
 ```
 docker run  -e GITHUB_API_TOKEN=<github_api_token> -e SERVER_PORT=8080 -p 8080:8080  lchennupa/hack-projects:netflix-repos
